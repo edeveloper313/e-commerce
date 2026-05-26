@@ -12,19 +12,23 @@ import { ChevronRight } from "lucide-react";
 import { heroProducts } from "@/types/data/CaroselData";
 
 const RightSideBar = () => {
-  const plugin = React.useRef(
-    Autoplay({ delay: 5000, stopOnInteraction: false }),
+  const plugin = React.useMemo(
+    () =>
+      Autoplay({
+        delay: 5000,
+        stopOnInteraction: false,
+      }),
+    [],
   );
-
   return (
     <>
       <div className="col-span-12 md:col-span-9 h-full">
         <Carousel
-          plugins={[plugin.current]}
+          plugins={[plugin]}
           opts={{ loop: true }}
           className="w-full h-full rounded-lg overflow-hidden"
-          onMouseEnter={plugin.current.stop}
-          onMouseLeave={plugin.current.play}
+          onMouseEnter={() => plugin.stop?.()}
+          onMouseLeave={() => plugin.play?.()}
         >
           <CarouselContent>
             {heroProducts.map((product) => (
