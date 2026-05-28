@@ -66,7 +66,7 @@ export default function Footer() {
               <FaYoutube className="size-5 text-muted-foreground hover:text-primary cursor-pointer transition-colors" />
             </div>
           </div>
-
+    
           {/* Column 2: Shop Categories */}
           <div className="flex flex-col gap-4">
             <h3 className="font-semibold text-foreground uppercase tracking-wider">
