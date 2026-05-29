@@ -1,4 +1,4 @@
-import { categoriesData } from "@/types/data/CaroselData";
+import { categoriesData } from "@/types/data/Carosel.data";
 import { ChevronRight } from "lucide-react";
 import React from "react";
 

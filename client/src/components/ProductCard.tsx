@@ -1,12 +1,12 @@
 import Image from "next/image";
-import { IProduct } from "@/types/Products.types";
+import { ProductI } from "@/types/interfaces/Interfaces.type";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { useCart } from "@/store/UseCard";
 
 interface Props {
-  product: IProduct;
+  product: ProductI;
 }
 
 export default function ProductCard({ product }: Props) {

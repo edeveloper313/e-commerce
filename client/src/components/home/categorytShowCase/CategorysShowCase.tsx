@@ -1,5 +1,5 @@
 import React from "react";
-import { CategoryI, categories } from "@/types/Categorys.type";
+import { CategoryI, categories } from "@/types/data/Categorys.data";
 
 const CategoryShowcase: React.FC = () => {
   return (

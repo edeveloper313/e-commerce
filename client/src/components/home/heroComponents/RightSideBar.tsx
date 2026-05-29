@@ -9,7 +9,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { ChevronRight } from "lucide-react";
-import { heroProducts } from "@/types/data/CaroselData";
+import { heroProducts } from "@/types/data/Carosel.data";
 
 const RightSideBar = () => {
   const plugin = React.useMemo(
