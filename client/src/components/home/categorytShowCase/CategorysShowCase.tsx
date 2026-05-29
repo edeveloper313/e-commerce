@@ -1,45 +1,66 @@
+"use client";
+
 import React from "react";
 import { categories } from "@/types/data/Categorys.data";
 import { CategoryI } from "@/types/interfaces/Interfaces.type";
-
 import Image from "next/image";
+import { motion } from "motion/react";
+import Link from "next/link";
 
 const CategoryShowcase: React.FC = () => {
   return (
-    <section className="py-24">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <h2 className="font-manrope font-bold text-4xl text-black mb-8 max-xl:text-center">
-          Shop by Category
-        </h2>
+    <section className="bg-background py-24">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+          <div className="space-y-4">
+            <h2 className="heading-lg font-black tracking-tighter text-gray-900">
+              Browse Categories
+            </h2>
+            <div className="h-2 w-32 bg-primary rounded-full"></div>
+          </div>
+          <p className="text-muted-foreground max-w-md text-lg font-medium leading-relaxed italic border-l-4 border-primary/10 pl-6">
+            Find exactly what you need with our curated collections of premium goods.
+          </p>
+        </div>
+
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8">
-          {categories.map((category: CategoryI) => (
-            <a
+          {categories.map((category: CategoryI, index: number) => (
+            <motion.div
               key={category.id}
-              href={category.link}
-              className="relative group rounded-3xl overflow-hidden cursor-pointer block"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1 }}
             >
-              <div className="relative w-full h-64 overflow-hidden rounded-2xl">
-                <Image
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
-                  src={category.imageUrl}
-                  alt={category.name}
-                  fill
-                />
-              </div>
-              <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent rounded-b-2xl">
-                <h3 className="text-white text-xl font-bold">
-                  {category.name}
-                </h3>
-                {category.description && (
-                  <p className="text-white/80 text-sm mt-1">
-                    {category.description}
-                  </p>
-                )}
-                <span className="inline-block mt-2 text-indigo-300 text-sm font-medium group-hover:text-indigo-200 transition">
-                  Shop Now →
-                </span>
-              </div>
-            </a>
+              <Link
+                href={category.link}
+                className="group relative flex flex-col items-center text-center space-y-6"
+              >
+                <div className="relative w-full aspect-square overflow-hidden rounded-[2.5rem] shadow-xl transition-all duration-500 group-hover:shadow-2xl group-hover:shadow-primary/20 border-4 border-transparent group-hover:border-primary/10">
+                  <Image
+                    className="object-cover transition-transform duration-700 group-hover:scale-110"
+                    src={category.imageUrl}
+                    alt={category.name}
+                    fill
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end justify-center pb-8">
+                    <span className="bg-white text-black px-6 py-2 rounded-full text-sm font-black uppercase tracking-widest shadow-xl">
+                      View All
+                    </span>
+                  </div>
+                </div>
+                <div className="space-y-1">
+                  <h3 className="text-2xl font-black text-gray-900 group-hover:text-primary transition-colors">
+                    {category.name}
+                  </h3>
+                  {category.description && (
+                    <p className="text-muted-foreground text-sm font-bold uppercase tracking-wider">
+                      {category.description}
+                    </p>
+                  )}
+                </div>
+              </Link>
+            </motion.div>
           ))}
         </div>
       </div>

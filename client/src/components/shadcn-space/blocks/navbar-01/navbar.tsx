@@ -1,4 +1,5 @@
 "use client";
+
 import MyButton from "@/components/myReuseComponents/MyButton";
 import {
   DropdownMenu,
@@ -16,6 +17,7 @@ import { cn } from "@/lib/utils";
 import { TextAlignJustify } from "lucide-react";
 import Link from "next/link";
 import { useCallback, useEffect, useState } from "react";
+import { CartSidebar } from "@/components/CartSidebar";
 
 export type NavigationSection = {
   title: string;
@@ -24,26 +26,27 @@ export type NavigationSection = {
 
 const navigationData: NavigationSection[] = [
   {
-    title: "Shop",
-    href: "#",
+    title: "Shop All",
+    href: "/home",
   },
   {
-    title: "Deals / Sale",
-    href: "#",
+    title: "Perfumes",
+    href: "/category/man-perfume",
   },
   {
-    title: "Brands",
-    href: "#",
+    title: "Watches",
+    href: "/category/watches",
   },
   {
-    title: "Team",
-    href: "#",
+    title: "Accessories",
+    href: "/category/glasses",
   },
 ];
 
 const Navbar = () => {
   const [sticky, setSticky] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+
   const handleScroll = useCallback(() => {
     setSticky(window.scrollY >= 50);
   }, []);
@@ -63,63 +66,79 @@ const Navbar = () => {
   }, [handleScroll, handleResize]);
 
   return (
-    <div>
-      <header className="bg-background">
-        <div className="max-w-7xl mx-auto w-full px-4 py-4 sm:px-6">
-          <nav
-            className={cn(
-              "w-full flex items-center h-fit justify-between gap-3.5 lg:gap-6 transition-all duration-500",
-              sticky
-                ? "p-2.5 bg-background/60 backdrop-blur-lg border border-border/40 shadow-2xl shadow-primary/5 rounded-full"
-                : "bg-transparent border-transparent",
-            )}
-          >
-            <Link href="/">
-              <h3 className={cn("text-3xl text-gray-600")}> E-Store</h3>
-            </Link>
-            <div>
-              <NavigationMenu className="max-lg:hidden bg-muted p-0.5 rounded-full">
-                <NavigationMenuList className="flex gap-0">
-                  {navigationData.map((navItem) => (
-                    <NavigationMenuItem key={navItem.title}>
-                      <NavigationMenuLink
-                        href={navItem.href}
-                        className="px-2 lg:px-4 py-2 text-sm font-medium rounded-full text-muted-foreground hover:text-foreground hover:bg-background outline outline-transparent hover:outline-border hover:shadow-xs transition tracking-normal"
-                      >
-                        {navItem.title}
-                      </NavigationMenuLink>
-                    </NavigationMenuItem>
-                  ))}
-                </NavigationMenuList>
-              </NavigationMenu>
+    <header className="sticky top-0 z-50 w-full transition-all duration-300">
+      <div className={cn(
+        "max-w-7xl mx-auto w-full px-4 py-4 sm:px-6 transition-all duration-500",
+        sticky ? "py-2" : "py-6"
+      )}>
+        <nav
+          className={cn(
+            "w-full flex items-center justify-between gap-6 px-6 py-3 transition-all duration-500 rounded-[2rem]",
+            sticky
+              ? "bg-background/80 backdrop-blur-xl border border-muted/50 shadow-2xl shadow-primary/10"
+              : "bg-muted/10 backdrop-blur-sm border border-transparent",
+          )}
+        >
+          <Link href="/" className="flex items-center gap-2 group">
+            <h3 className="text-2xl font-black text-primary tracking-tighter uppercase group-hover:scale-105 transition-transform">
+              E-Store
+            </h3>
+          </Link>
+          
+          <div className="hidden lg:flex items-center">
+            <NavigationMenu className="bg-background/50 p-1 rounded-full border border-muted/30">
+              <NavigationMenuList className="flex gap-1">
+                {navigationData.map((navItem) => (
+                  <NavigationMenuItem key={navItem.title}>
+                    <NavigationMenuLink
+                      href={navItem.href}
+                      className="px-6 py-2 text-[10px] font-black uppercase tracking-widest rounded-full text-muted-foreground hover:text-primary hover:bg-background transition-all"
+                    >
+                      {navItem.title}
+                    </NavigationMenuLink>
+                  </NavigationMenuItem>
+                ))}
+              </NavigationMenuList>
+            </NavigationMenu>
+          </div>
+
+          <div className="flex items-center gap-3">
+            <div className="hidden sm:block">
+              <MyButton content="Contact Studio" />
             </div>
-            <MyButton content="Contact us" />
+            
+            <CartSidebar />
 
             <div className="lg:hidden">
               <DropdownMenu open={isOpen} onOpenChange={setIsOpen}>
-                <DropdownMenuTrigger className="rounded-full bg-background border border-border p-2 outline-none flex items-center justify-center cursor-pointer transition-colors">
+                <DropdownMenuTrigger className="rounded-full bg-background border-2 border-muted p-3 outline-none flex items-center justify-center cursor-pointer transition-all hover:bg-primary hover:text-white">
                   <TextAlignJustify size={20} />
                   <span className="sr-only">Menu</span>
                 </DropdownMenuTrigger>
 
-                <DropdownMenuContent align="end" className="w-56 mt-2">
+                <DropdownMenuContent align="end" className="w-64 mt-4 p-2 rounded-2xl border-2 shadow-2xl">
                   {navigationData.map((item) => (
-                    <DropdownMenuItem key={item.title}>
-                      <a
+                    <DropdownMenuItem key={item.title} asChild className="rounded-xl">
+                      <Link
                         href={item.href}
-                        className="w-full cursor-pointer text-sm font-medium"
+                        className="w-full cursor-pointer px-4 py-3 text-xs font-black uppercase tracking-widest"
                       >
                         {item.title}
-                      </a>
+                      </Link>
                     </DropdownMenuItem>
                   ))}
+                  <DropdownMenuItem asChild className="rounded-xl mt-2 bg-primary text-white focus:bg-primary/90 focus:text-white">
+                    <Link href="#" className="w-full text-center py-3 text-xs font-black uppercase tracking-widest">
+                      Contact Us
+                    </Link>
+                  </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
             </div>
-          </nav>
-        </div>
-      </header>
-    </div>
+          </div>
+        </nav>
+      </div>
+    </header>
   );
 };
 

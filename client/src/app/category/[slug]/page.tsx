@@ -1,16 +1,26 @@
 "use client";
-import React from "react";
+
+import React, { useState, useEffect } from "react";
 import { useParams } from "next/navigation";
 import { allProducts } from "@/lib/mockData";
 import ProductCard from "@/components/ProductCard";
 
 const CategoryPage = () => {
+  const [mounted, setMounted] = useState(false);
+  
+  useEffect(() => {
+    const timer = setTimeout(() => setMounted(true), 0);
+    return () => clearTimeout(timer);
+  }, []);
+
   const params = useParams();
   const slug = params.slug as string;
 
   const products = allProducts.filter(
     (p) => p.category.toLowerCase() === slug.toLowerCase(),
   );
+
+  if (!mounted) return null;
 
   return (
     <div className="container mx-auto p-6">
