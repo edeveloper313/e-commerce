@@ -1,5 +1,8 @@
 import React from "react";
-import { CategoryI, categories } from "@/types/data/Categorys.data";
+import { categories } from "@/types/data/Categorys.data";
+import { CategoryI } from "@/types/interfaces/Interfaces.type";
+
+import Image from "next/image";
 
 const CategoryShowcase: React.FC = () => {
   return (
@@ -15,11 +18,14 @@ const CategoryShowcase: React.FC = () => {
               href={category.link}
               className="relative group rounded-3xl overflow-hidden cursor-pointer block"
             >
-              <img
-                className="w-full h-64 object-cover rounded-2xl transition-transform duration-500 group-hover:scale-105"
-                src={category.imageUrl}
-                alt={category.name}
-              />
+              <div className="relative w-full h-64 overflow-hidden rounded-2xl">
+                <Image
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  src={category.imageUrl}
+                  alt={category.name}
+                  fill
+                />
+              </div>
               <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent rounded-b-2xl">
                 <h3 className="text-white text-xl font-bold">
                   {category.name}

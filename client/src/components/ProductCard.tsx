@@ -1,9 +1,12 @@
+"use client";
+
 import Image from "next/image";
 import { ProductI } from "@/types/interfaces/Interfaces.type";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { useCart } from "@/store/UseCard";
+import Link from "next/link";
 
 interface Props {
   product: ProductI;
@@ -15,12 +18,14 @@ export default function ProductCard({ product }: Props) {
   return (
     <Card className="overflow-hidden group hover:shadow-lg transition">
       <div className="relative h-64 w-full">
-        <Image 
-          src={product.images[0]} 
-          alt={product.name} 
-          fill 
-          className="object-cover group-hover:scale-105 transition duration-300"
-        />
+        <Link href={`/product/${product._id}`}>
+          <Image
+            src={product.images[0]}
+            alt={product.name}
+            fill
+            className="object-cover group-hover:scale-105 transition duration-300"
+          />
+        </Link>
       </div>
       <CardContent className="p-4">
         <div className="flex justify-between items-center mb-2">
@@ -28,13 +33,12 @@ export default function ProductCard({ product }: Props) {
           <span className="text-lg font-bold">${product.price}</span>
         </div>
         <h3 className="font-semibold text-lg line-clamp-1">{product.name}</h3>
-        <p className="text-sm text-gray-500 line-clamp-2">{product.description}</p>
+        <p className="text-sm text-gray-500 line-clamp-2">
+          {product.description}
+        </p>
       </CardContent>
       <CardFooter className="p-4 pt-0">
-        <Button 
-          className="w-full"
-          onClick={() => addToCart(product)}
-        >
+        <Button className="w-full" onClick={() => addToCart(product)}>
           Add to Cart
         </Button>
       </CardFooter>

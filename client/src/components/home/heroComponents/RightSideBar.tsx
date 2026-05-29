@@ -8,8 +8,10 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import { ChevronRight } from "lucide-react";
 import { heroProducts } from "@/types/data/Carosel.data";
+
+import Link from "next/link";
+import Image from "next/image";
 
 const RightSideBar = () => {
   const plugin = React.useMemo(
@@ -34,18 +36,22 @@ const RightSideBar = () => {
             {heroProducts.map((product) => (
               <CarouselItem key={product.id}>
                 <div className="relative h-[400px] w-full">
-                  <img
+                  <Image
                     src={product.image}
                     alt={product.title}
-                    className="object-cover w-full h-full"
+                    fill
+                    className="object-cover"
                   />
                   {/* Overlay Text */}
-                  <div className="absolute inset-0 bg-black/30 flex flex-col justify-center px-12 text-white">
+                  <div className="absolute inset-0 bg-black/40 flex flex-col justify-center px-12 text-white">
                     <h2 className="text-4xl font-bold mb-2">{product.title}</h2>
-                    <p className="text-xl mb-4">{product.subTitle}</p>
-                    <button className="bg-white text-black px-6 py-2 rounded-md w-fit font-semibold">
+                    <p className="text-xl mb-6">{product.subTitle}</p>
+                    <Link 
+                      href={product.link}
+                      className="bg-white text-black px-8 py-3 rounded-full w-fit font-bold hover:bg-gray-200 transition-colors shadow-lg"
+                    >
                       Shop Now
-                    </button>
+                    </Link>
                   </div>
                 </div>
               </CarouselItem>

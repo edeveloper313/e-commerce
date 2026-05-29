@@ -6,8 +6,20 @@ const categoriesData = [
 
 // Dummy Hero Products (Sirf 3-4 top products)
 const heroProducts = [
-  { id: 1, image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=1000", title: "Premium Headphones", subTitle: "Up to 50% Off" },
-  { id: 2, image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=1000", title: "Smart Watches", subTitle: "Latest Collection" },
+  { 
+    id: "midnight-oud", 
+    image: "https://images.unsplash.com/photo-1594035910387-fea47794261f?w=1000&h=600&fit=crop", 
+    title: "Midnight Oud Perfume", 
+    subTitle: "Exclusive Evening Fragrance",
+    link: "/product/midnight-oud"
+  },
+  { 
+    id: "chronograph-watch", 
+    image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=1000", 
+    title: "Smart Watches", 
+    subTitle: "Latest Collection 2024",
+    link: "/product/chronograph-watch"
+  },
 ];
 
-export  {categoriesData,heroProducts}
+export { categoriesData, heroProducts }

@@ -4,16 +4,13 @@ import { Logo } from "@/components/pro-blocks/logo";
 import Link from "next/link";
 import { Separator } from "@/components/ui/separator";
 import {
-  FaCcVisa,
-  FaCcMastercard,
-  FaCcPaypal,
-  FaCcApplePay,
   FaFacebook,
   FaInstagram,
   FaTwitter,
   FaYoutube,
 } from "react-icons/fa";
 import { Mail, MapPin, Phone } from "lucide-react";
+import Image from "next/image";
 
 // 1. Categories Column
 const CATEGORIES = [
@@ -148,21 +145,30 @@ export default function Footer() {
 
           {/* Payment Icons Placeholder */}
           <div className="flex items-center gap-4 grayscale opacity-70">
-            <img
-              src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg"
-              alt="Visa"
-              className="h-4"
-            />
-            <img
-              src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg"
-              alt="Mastercard"
-              className="h-6"
-            />
-            <img
-              src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg"
-              alt="Paypal"
-              className="h-5"
-            />
+            <div className="relative h-4 w-12">
+              <Image
+                src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg"
+                alt="Visa"
+                fill
+                className="object-contain"
+              />
+            </div>
+            <div className="relative h-6 w-10">
+              <Image
+                src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg"
+                alt="Mastercard"
+                fill
+                className="object-contain"
+              />
+            </div>
+            <div className="relative h-5 w-16">
+              <Image
+                src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg"
+                alt="Paypal"
+                fill
+                className="object-contain"
+              />
+            </div>
           </div>
         </div>
       </div>

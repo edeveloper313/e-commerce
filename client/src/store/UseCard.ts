@@ -1,9 +1,9 @@
 import { create } from 'zustand';
-import { IProduct } from '@/types/Products.types';
+import { ProductI } from '@/types/interfaces/Interfaces.type';
 
 interface CartState {
-  items: IProduct[];
-  addToCart: (product: IProduct) => void;
+  items: ProductI[];
+  addToCart: (product: ProductI) => void;
   removeFromCart: (id: string) => void;
 }
 

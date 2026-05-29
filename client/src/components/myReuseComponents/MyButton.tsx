@@ -1,15 +1,20 @@
-
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { ArrowUpRight } from "lucide-react";
 
-type myButtonProps={
-content:string;
-}
+type MyButtonProps = {
+  content: string;
+  className?: string;
+};
 
-const MyButton = ({content}:myButtonProps) => {
-  const CollaborateButton = ({ className }: { className?: string }) => (
-    <Button className={cn("relative text-sm font-medium rounded-full h-10 p-1 ps-4 pe-12 group transition-all duration-500 hover:ps-12 hover:pe-4 w-fit overflow-hidden hover:bg-primary/80", className)}>
+const MyButton = ({ content, className }: MyButtonProps) => {
+  return (
+    <Button
+      className={cn(
+        "relative text-sm font-medium rounded-full h-10 p-1 ps-4 pe-12 group transition-all duration-500 hover:ps-12 hover:pe-4 w-fit overflow-hidden hover:bg-primary/80 hidden lg:flex",
+        className
+      )}
+    >
       <span className="relative z-10 transition-all duration-500 hover:cursor-pointer">
         {content}
       </span>
@@ -18,10 +23,6 @@ const MyButton = ({content}:myButtonProps) => {
       </div>
     </Button>
   );
-  return <>
-              <CollaborateButton className="hidden lg:flex" />
-
-  </>;
 };
 
 export default MyButton;

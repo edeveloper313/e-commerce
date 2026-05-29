@@ -2,7 +2,7 @@ import { FeaturedProductI } from "../interfaces/Interfaces.type";
 
 export const featuredProductsD: FeaturedProductI[] = [
   {
-    id: "1",
+    id: "midnight-oud",
     name: "Midnight Oud Perfume",
     price: 89.99,
     originalPrice: 129.99,
@@ -14,7 +14,7 @@ export const featuredProductsD: FeaturedProductI[] = [
     isNew: true,
   },
   {
-    id: "2",
+    id: "chronograph-watch",
     name: "Chronograph Rose Gold Watch",
     price: 199.99,
     imageSrc: "https://images.unsplash.com/photo-1524805444758-089113d48a6d?w=600&h=600&fit=crop",
@@ -25,7 +25,7 @@ export const featuredProductsD: FeaturedProductI[] = [
     isBestSeller: true,
   },
   {
-    id: "3",
+    id: "silver-ring",
     name: "Diamond Cut Silver Ring",
     price: 149.99,
     originalPrice: 249.99,
@@ -36,7 +36,7 @@ export const featuredProductsD: FeaturedProductI[] = [
     reviewCount: 56,
   },
   {
-    id: "4",
+    id: "aviator-glasses",
     name: "Polarized Aviator Sunglasses",
     price: 79.99,
     imageSrc: "https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=600&h=600&fit=crop",
@@ -47,7 +47,7 @@ export const featuredProductsD: FeaturedProductI[] = [
     isNew: true,
   },
   {
-    id: "5",
+    id: "leather-bag",
     name: "Leather Messenger Bag",
     price: 129.99,
     originalPrice: 189.99,
@@ -59,7 +59,7 @@ export const featuredProductsD: FeaturedProductI[] = [
     isBestSeller: true,
   },
   {
-    id: "6",
+    id: "cufflinks",
     name: "Sapphire Cufflinks Set",
     price: 59.99,
     imageSrc: "https://images.unsplash.com/photo-1617038260891-97778c2e6e5a?w=600&h=600&fit=crop",

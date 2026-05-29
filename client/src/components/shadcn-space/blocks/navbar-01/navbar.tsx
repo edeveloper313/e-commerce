@@ -1,5 +1,4 @@
 "use client";
-import Logo from "@/assets/logo/logo";
 import MyButton from "@/components/myReuseComponents/MyButton";
 import {
   DropdownMenu,
@@ -14,7 +13,8 @@ import {
   NavigationMenuList,
 } from "@/components/ui/navigation-menu";
 import { cn } from "@/lib/utils";
-import { ArrowUpRight, TextAlignJustify } from "lucide-react";
+import { TextAlignJustify } from "lucide-react";
+import Link from "next/link";
 import { useCallback, useEffect, useState } from "react";
 
 export type NavigationSection = {
@@ -74,9 +74,9 @@ const Navbar = () => {
                 : "bg-transparent border-transparent",
             )}
           >
-            <a href="#">
-              <h3 className={cn("text-3xl text-gray-600")}> E-Stroe</h3>
-            </a>
+            <Link href="/">
+              <h3 className={cn("text-3xl text-gray-600")}> E-Store</h3>
+            </Link>
             <div>
               <NavigationMenu className="max-lg:hidden bg-muted p-0.5 rounded-full">
                 <NavigationMenuList className="flex gap-0">
