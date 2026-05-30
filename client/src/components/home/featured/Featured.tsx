@@ -2,11 +2,11 @@
 
 import React, { useState, useEffect } from "react";
 import { FeaturedProductI } from "@/types/interfaces/Interfaces.type";
-import { featuredProductsD } from "@/types/data/Featured.data";
+import { featuredProductsD } from "@/data/featured";
 import Link from "next/link";
 import Image from "next/image";
 import { useCart } from "@/store/UseCard";
-import { allProducts } from "@/lib/mockData";
+import { allProducts } from "@/data/products";
 import { Minus, Plus, ShoppingCart } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion } from "motion/react";
@@ -41,7 +41,7 @@ const FeaturedProducts: React.FC = () => {
             <div className="h-2 w-32 bg-primary rounded-full"></div>
           </div>
           <Link
-            href="/home"
+            href="/"
             className="group flex items-center gap-3 text-primary font-black uppercase tracking-widest hover:text-primary/80 transition-colors text-sm"
           >
             Explore More

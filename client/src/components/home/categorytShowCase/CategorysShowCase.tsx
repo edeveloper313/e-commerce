@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { categories } from "@/types/data/Categorys.data";
+import { categories } from "@/data/categories";
 import { CategoryI } from "@/types/interfaces/Interfaces.type";
 import Image from "next/image";
 import { motion } from "motion/react";

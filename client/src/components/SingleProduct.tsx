@@ -2,7 +2,7 @@
 
 import { useParams } from "next/navigation";
 import { useState, useEffect } from "react";
-import { getProductById, allProducts } from "@/lib/mockData";
+import { getProductById, allProducts } from "@/data/products";
 import { Button } from "@/components/ui/button";
 import { Minus, Plus, ShoppingCart, Trash2, ArrowLeft } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -46,7 +46,7 @@ export default function SingleProduct() {
       <div className="max-w-7xl mx-auto px-4 py-8 md:py-12">
         {/* Back Button */}
         <Link 
-          href="/home" 
+          href="/" 
           className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors mb-8 group"
         >
           <ArrowLeft size={20} className="group-hover:-translate-x-1 transition-transform" />
@@ -150,7 +150,7 @@ export default function SingleProduct() {
                     </Button>
                   </div>
                   <Button variant="outline" size="lg" className="w-full h-16 rounded-2xl text-lg font-bold border-2 hover:bg-muted/50 transition-all" asChild>
-                     <Link href="/home">Continue Shopping</Link>
+                     <Link href="/">Continue Shopping</Link>
                   </Button>
                 </div>
               ) : (

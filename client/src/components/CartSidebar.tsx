@@ -13,6 +13,7 @@ import { ShoppingCart, Plus, Minus, X } from "lucide-react";
 import { useCart } from "@/store/UseCard";
 import Image from "next/image";
 import { Separator } from "@/components/ui/separator";
+import Link from "next/link";
 
 export function CartSidebar() {
   const { items, removeFromCart, updateQuantity, getTotalPrice, getTotalItems } = useCart();
@@ -126,9 +127,9 @@ export function CartSidebar() {
                 Shipping & Taxes calculated at checkout
               </p>
             </div>
-            <Button className="w-full h-16 text-lg font-black rounded-[1.25rem] shadow-2xl shadow-primary/20 hover:shadow-primary/40 transition-all uppercase tracking-widest">
+            <Link href={`checkout`} className="w-full h-16 text-lg font-black rounded-[1.25rem] shadow-2xl shadow-primary/20 hover:shadow-primary/40 transition-all uppercase tracking-widest">
               Proceed to Checkout
-            </Button>
+            </Link>
           </SheetFooter>
         )}
       </SheetContent>

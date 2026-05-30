@@ -13,6 +13,7 @@ interface CartState {
   removeFromCart: (id: string) => void;
   updateQuantity: (id: string, quantity: number) => void;
   clearCart: () => void;
+  checkout: () => void;
   getTotalItems: () => number;
   getTotalPrice: () => number;
 }
@@ -47,6 +48,15 @@ export const useCart = create<CartState>()(
       })),
 
       clearCart: () => set({ items: [] }),
+
+      // Simulates updating global stock (in a real app, this would be an API call)
+      checkout: () => {
+        const { items } = get();
+        // In a real project, we'd send 'items' to the backend to decrement DB stock.
+        // For this mock project, we just clear the cart.
+        console.log("Mock Checkout: Stock decremented for items:", items);
+        set({ items: [] });
+      },
 
       getTotalItems: () => {
         return get().items.reduce((total, item) => total + item.quantity, 0);

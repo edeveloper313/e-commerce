@@ -27,7 +27,7 @@ export type NavigationSection = {
 const navigationData: NavigationSection[] = [
   {
     title: "Shop All",
-    href: "/home",
+    href: "/",
   },
   {
     title: "Perfumes",

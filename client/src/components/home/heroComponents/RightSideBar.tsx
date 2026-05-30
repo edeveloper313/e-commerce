@@ -8,8 +8,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import { heroProducts } from "@/types/data/Carosel.data";
-
+import { heroProducts } from "@/data/navigation";
 import Link from "next/link";
 import Image from "next/image";
 

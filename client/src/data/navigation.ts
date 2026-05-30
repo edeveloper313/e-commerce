@@ -1,7 +1,10 @@
 // Dummy Categories
 const categoriesData = [
-  "Electronics", "Fashion", "Home & Garden", "Beauty", 
-  "Sports", "Automotive", "Toys", "Books", "Health"
+  "Perfume", 
+  "Watches", 
+  "Jewelry", 
+  "Accessories", 
+  "Bags"
 ];
 
 // Dummy Hero Products (Sirf 3-4 top products)
@@ -15,7 +18,7 @@ const heroProducts = [
   },
   { 
     id: "chronograph-watch", 
-    image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=1000", 
+    image: "https://images.unsplash.com/photo-1524805444758-089113d48a6d?w=1000&h=600&fit=crop", 
     title: "Smart Watches", 
     subTitle: "Latest Collection 2024",
     link: "/product/chronograph-watch"
