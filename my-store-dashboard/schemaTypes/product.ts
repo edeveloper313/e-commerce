@@ -1,0 +1,55 @@
+export default {
+  name: 'product',
+  type: 'document',
+  title: 'All Products',
+  fields: [
+    {
+      name: 'title',
+      type: 'string',
+      title: 'Product Title',
+      validation: (Rule: any) => Rule.required(),
+    },
+    {
+      name: 'price',
+      type: 'number',
+      title: 'Price',
+      validation: (Rule: any) => Rule.required(),
+    },
+    {
+      name: 'stock',
+      type: 'number',
+      title: 'Stock per piece',
+      validation: (Rule: any) => Rule.required(),
+    },
+    {
+      name: 'mainImage',
+      type: 'image',
+      title: 'Product Image',
+      options: {hotspot: true},
+      validation: (Rule: any) => Rule.required(),
+    },
+    {
+      name: 'category',
+      type: 'reference',
+      title: 'Select Category',
+      to: [{type: 'category'}],
+      validation: (Rule: any) => Rule.required(),
+    },
+    {
+      name: 'slug',
+      type: 'slug',
+      title: 'URL Slug',
+      options: {source: 'title'},
+      validation: (Rule: any) => Rule.required(),
+    },
+    {
+      name: 'supplier',
+      type: 'string',
+      title: 'supplier name',
+      validation: (Rule: any) => Rule.required(),
+    },
+    {name: 'isNew', title: 'Is New?', type: 'boolean'},
+    {name: 'isBestSeller', title: 'Is Best Seller?', type: 'boolean'},
+    {name: 'reviewCount', title: 'Review Count', type: 'number'},
+  ],
+}
